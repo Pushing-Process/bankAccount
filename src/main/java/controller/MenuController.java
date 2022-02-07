@@ -1,4 +1,4 @@
-package com.example.login;
+package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
