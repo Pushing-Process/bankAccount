@@ -11,7 +11,7 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
             minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
-            fx:controller="controller.HelloController">
+            fx:controller="controller.LoginController">
     <children>
         <TextField fx:id="userTextField" layoutX="332.0" layoutY="166.0" prefHeight="25.0" prefWidth="218.0"
                    AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="166.0"/>
