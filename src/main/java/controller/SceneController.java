@@ -25,8 +25,32 @@ public class SceneController {
         stage.setScene(new Scene(parent));
     }
 
+    public void switchSceneIngresos(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("ingresar_view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(parent));
+    }
+
     public void switchSceneRetirar(MouseEvent event) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("retirar_view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(parent));
+    }
+
+    public void switchSceneTransferencia(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("transferir_view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(parent));
+    }
+
+    public void switchSceneSaldo(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("saldo_view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(parent));
+    }
+
+    public void switchSceneEstadisticas(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("estadisticas_view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(parent));
     }
