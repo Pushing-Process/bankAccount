@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RetirarController">
+   <children>
+      <JFXButton fx:id="submitBtn" layoutX="416.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" text="Submit" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+      <JFXButton fx:id="cancelBtn" layoutX="118.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" text="Cancel" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="120.0" />
+      <Label fx:id="saldoTextField" layoutX="118.0" layoutY="134.0" prefHeight="26.0" prefWidth="143.0" text="Label" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0" />
+      <TextField fx:id="retirarTextArea" layoutX="340.0" layoutY="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="135.0" />
+   </children>
+</AnchorPane>

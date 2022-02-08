@@ -9,17 +9,21 @@ import model.Cuenta;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HelloApplication extends Application {
 
-    public static ArrayList<Cuenta> cuentas = new ArrayList<>();
-
-    @Override
-    public void start(Stage stage) throws IOException {
+    public static List<Cuenta> cuentas = new ArrayList<>();
+    static {
         cuentas.add(new Cuenta("dani", "111", (double) 100));
         cuentas.add(new Cuenta("flavio", "111", (double) 110));
         cuentas.add(new Cuenta("oleh", "111", (double) 120));
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+    }
+
+    @Override
+    public void start(Stage stage) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
         stage.setTitle("login");
         stage.setResizable(false);
         stage.setScene(new Scene(root));
