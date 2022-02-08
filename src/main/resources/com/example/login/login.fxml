@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            xmlns:fx="http://javafx.com/fxml/1" prefWidth="600.0" xmlns="http://javafx.com/javafx/11"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
             fx:controller="controller.HelloController">
     <children>
         <TextField fx:id="userTextField" layoutX="332.0" layoutY="166.0" prefHeight="25.0" prefWidth="218.0"
@@ -32,7 +32,7 @@
                 onAction="#OnLoginButtonClick" prefHeight="40.0" prefWidth="75.0" text="Login"
                 AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="261.0"/>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="29.0" layoutY="124.0" pickOnBounds="true"
-                   preserveRatio="true">
+                   preserveRatio="true" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="124.0">
             <image>
                 <Image url="@../../../img/play.png"/>
             </image>

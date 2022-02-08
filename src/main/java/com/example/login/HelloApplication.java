@@ -5,16 +5,24 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Cuenta;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HelloApplication extends Application {
 
+    public static ArrayList<Cuenta> cuentas = new ArrayList<>();
+
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        cuentas.add(new Cuenta("dani", "111", (double) 100));
+        cuentas.add(new Cuenta("flavio", "111", (double) 110));
+        cuentas.add(new Cuenta("oleh", "111", (double) 120));
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         stage.setTitle("login");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
