@@ -25,5 +25,9 @@ public class SceneController {
         stage.setScene(new Scene(parent));
     }
 
-
+    public void switchSceneRetirar(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("retirar_view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(parent));
+    }
 }
