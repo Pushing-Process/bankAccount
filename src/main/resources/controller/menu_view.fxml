@@ -21,7 +21,7 @@
                         <Label text="Ingreso" />
                         <ImageView fx:id="ingresos" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#ingresosClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/2560px-Playstation_logo_colour.svg.png" />
+                              <Image url="@../img/play.png" />
                            </image>
                            <effect>
                               <DisplacementMap>
@@ -38,7 +38,7 @@
                         <Label text="Retiro" />
                         <ImageView fx:id="retiros" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/2560px-Playstation_logo_colour.svg.png" />
+                              <Image url="@../img/play.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -48,7 +48,7 @@
                         <Label text="Transferencia" />
                         <ImageView fx:id="transferencia" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/2560px-Playstation_logo_colour.svg.png" />
+                              <Image url="@../img/play.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -62,7 +62,7 @@
                         <Label text="Ver Saldo" />
                         <ImageView fx:id="saldo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/2560px-Playstation_logo_colour.svg.png" />
+                              <Image url="@../img/play.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -72,7 +72,7 @@
                         <Label text="Estadisticas" />
                         <ImageView fx:id="estadistica" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../../../Downloads/2560px-Playstation_logo_colour.svg.png" />
+                              <Image url="@../img/play.png" />
                            </image>
                         </ImageView>
                      </children>
