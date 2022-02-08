@@ -1,6 +1,7 @@
 package controller;
 
 import com.example.login.HelloApplication;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,22 +28,17 @@ public class HelloController implements Initializable {
     public Button loginButton;
 
     @FXML
-    public void OnLoginButtonClick() {
-        for (Cuenta cuenta : HelloApplication.cuentas) {
-            if (userTextField.getText().equalsIgnoreCase(cuenta.getUsuario()) && passwordTextField.getText().equals(cuenta.getPassword())) {
+    public void OnLoginButtonClick(ActionEvent event) {
+        SceneController s = new SceneController();
 
-            }
-        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setOnMouseClicked(mouseEvent -> {
-            Parent parent;
+            SceneController s = new SceneController();
             try {
-                parent = FXMLLoader.load(getClass().getResource("menu_view.fxml"));
-                Stage stage = (Stage) loginButton.getScene().getWindow();
-                stage.setScene(new Scene(parent));
+                s.switchSceneMenu(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();
             }
