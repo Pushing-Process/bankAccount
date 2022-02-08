@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelloApplication extends Application {
+public class Main extends Application {
 
     public static List<Cuenta> cuentas = new ArrayList<>();
     static {
