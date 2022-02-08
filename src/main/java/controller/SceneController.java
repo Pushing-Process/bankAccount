@@ -23,7 +23,7 @@ public class SceneController {
     }
 
     public void switchSceneMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("menu_view.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.show();

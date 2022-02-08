@@ -2,12 +2,21 @@ package controller;
 
 import com.example.login.HelloApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import model.Cuenta;
 
-public class HelloController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HelloController implements Initializable {
     @FXML
     public TextField userTextField;
 
@@ -24,5 +33,19 @@ public class HelloController {
 
             }
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loginButton.setOnMouseClicked(mouseEvent -> {
+            Parent parent;
+            try {
+                parent = FXMLLoader.load(getClass().getResource("menu_view.fxml"));
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.setScene(new Scene(parent));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 }
