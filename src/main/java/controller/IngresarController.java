@@ -11,12 +11,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class IngresarController {
+    @FXML
     public Button ingresarBtn;
+    @FXML
     public TextField balanceT;
     @FXML
     private TextField text_ingreso;
-    @FXML
-    private Cuenta cuenta;
+
 
     public void OnIngresarClick(MouseEvent mouseEvent) throws IOException {
         double ingreso = Double.parseDouble(text_ingreso.getText());
@@ -25,16 +26,9 @@ public class IngresarController {
 
     }
 
-    public IngresarController(Cuenta cuenta) {
-        this.cuenta = cuenta;
+
+    public void setDatos(String balance){
+        balanceT.setText(balance);
     }
 
-    public Cuenta getCuenta() {
-        return cuenta;
-    }
-
-    public void RecibirInf(ActionEvent actionEvent) {
-        balanceT = new TextField();
-        balanceT.setText(this.cuenta.getBalance().toString());
-    }
 }

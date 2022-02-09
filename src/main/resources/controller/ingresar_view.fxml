@@ -9,7 +9,7 @@
     <children>
         <VBox alignment="CENTER" layoutX="116.0" layoutY="80.0" prefHeight="153.0" prefWidth="243.0" spacing="20.0">
             <children>
-                <TextField fx:id="balanceT" editable="false" onAction="#RecibirInf" />
+                <TextField fx:id="balanceT" editable="false" />
                 <TextField fx:id="text_ingreso" />
                 <Button fx:id="ingresarBtn" mnemonicParsing="false" onMouseClicked="#OnIngresarClick" text="Ingresar" />
             </children>

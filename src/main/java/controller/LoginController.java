@@ -15,6 +15,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+    public static Cuenta cuentaUser;
+
     @FXML
     public TextField userTextField;
 
@@ -39,8 +41,7 @@ public class LoginController implements Initializable {
             try {
                 for (Cuenta cuenta : Main.cuentas) {
                     if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword().equals(passwordTextField.getText())) {
-                        MenuController m = new MenuController(cuenta);
-
+                        cuentaUser = cuenta;
                         s.switchSceneMenu(mouseEvent);
                         return;
                     }

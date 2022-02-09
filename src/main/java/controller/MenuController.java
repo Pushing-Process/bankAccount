@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import model.Cuenta;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
-
+    private Cuenta cuenta;
     @FXML
     private VBox vBoxIngreso, vBoxRetiro, vBoxTransferencia, vBoxSaldo, vBoxEstadisticas;
 
@@ -23,6 +24,7 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         vBoxRetiro.setOnMouseClicked(mouseEvent -> {
             try {
+
                 s.switchSceneRetirar(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -65,4 +67,8 @@ public class MenuController implements Initializable {
             }
         });
     }
+
+
+
+
 }
