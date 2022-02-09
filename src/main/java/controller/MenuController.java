@@ -19,17 +19,18 @@ public class MenuController implements Initializable {
 
     static SceneController s = new SceneController();
 
-    @FXML
-    public void ingresosClick(){
-        System.out.printf("adasdsad");
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         vBoxRetiro.setOnMouseClicked(mouseEvent -> {
             try {
                 s.switchSceneRetirar(mouseEvent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        vBoxIngreso.setOnMouseClicked(mouseEvent -> {
+            try {
+                s.switchSceneIngresos(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();
             }
