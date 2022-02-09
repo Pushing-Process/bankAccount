@@ -14,8 +14,7 @@
                   <VBox fx:id="vBoxIngreso" alignment="CENTER">
                      <children>
                         <Label text="Ingreso" />
-                        <ImageView fx:id="ingresos" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
-                                   preserveRatio="true">
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/play.png"/>
                            </image>
@@ -39,12 +38,13 @@
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER">
+                  <VBox fx:id="vBoxTransferencia" alignment="CENTER">
                      <children>
-                        <Label text="Transferencia" />
-                        <ImageView fx:id="transferencia" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <Label text="Transferencia"/>
+                        <ImageView fx:id="transferencia" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
+                                   preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/play.png"/>
                            </image>
                         </ImageView>
                      </children>
@@ -53,22 +53,24 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <VBox alignment="CENTER">
+                  <VBox fx:id="vBoxSaldo" alignment="CENTER">
                      <children>
-                        <Label text="Ver Saldo" />
-                        <ImageView fx:id="saldo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <Label text="Ver Saldo"/>
+                        <ImageView fx:id="saldo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
+                                   preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/play.png"/>
                            </image>
                         </ImageView>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER">
+                  <VBox fx:id="vBoxEstadisticas" alignment="CENTER">
                      <children>
-                        <Label text="Estadisticas" />
-                        <ImageView fx:id="estadistica" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                        <Label text="Estadisticas"/>
+                        <ImageView fx:id="estadistica" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true"
+                                   preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/play.png"/>
                            </image>
                         </ImageView>
                      </children>
