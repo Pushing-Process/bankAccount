@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="312.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/17"
+      fx:controller="controller.IngresarController">
+    <children>
+        <VBox alignment="CENTER" layoutX="116.0" layoutY="80.0" prefHeight="153.0" prefWidth="243.0" spacing="20.0">
+            <children>
+                <TextField editable="false"/>
+                <TextField fx:id="text_ingreso"/>
+                <Button fx:id="ingresarBtn" mnemonicParsing="false" onMouseClicked="#OnIngresarClick" text="Ingresar"/>
+            </children>
+        </VBox>
+    </children>
+</Pane>
