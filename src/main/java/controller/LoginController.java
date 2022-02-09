@@ -39,6 +39,8 @@ public class LoginController implements Initializable {
             try {
                 for (Cuenta cuenta : Main.cuentas) {
                     if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword().equals(passwordTextField.getText())) {
+                        MenuController m = new MenuController(cuenta);
+
                         s.switchSceneMenu(mouseEvent);
                         return;
                     }
