@@ -8,8 +8,8 @@ public class Extracto {
     private double saldo;
     private Date fecha;
 
-    public Extracto(boolean ingreso, double saldo) {
-        this.ingreso = ingreso;
+    public Extracto(double saldo) {
+        this.ingreso = saldo > 0;
         this.saldo = saldo;
         this.fecha = new Date();
     }
