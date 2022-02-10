@@ -1,15 +1,18 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Cuenta {
     private String usuario;
     private String password;
     private Double balance;
+    private ArrayList<Extracto> extractos;
 
-
-    public Cuenta(String usuario, String password, Double balance) {
+    public Cuenta(String usuario, String password, Double balance, ArrayList<Extracto> extractos) {
         this.usuario = usuario;
         this.password = password;
         this.balance = balance;
+        this.extractos = extractos;
     }
 
     public String getUsuario() {
@@ -34,5 +37,13 @@ public class Cuenta {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    public ArrayList<Extracto> getExtractos() {
+        return extractos;
+    }
+
+    public void setExtractos(ArrayList<Extracto> extractos) {
+        this.extractos = extractos;
     }
 }
