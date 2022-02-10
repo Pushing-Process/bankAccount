@@ -1,4 +1,13 @@
 package controller;
 
-public class TransferirController {
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TransferirController implements Initializable {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

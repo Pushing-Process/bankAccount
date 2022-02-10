@@ -28,6 +28,8 @@ public class RetirarController implements Initializable {
 
     Double saldo = 10.0;
 
+    static SceneController s = new SceneController();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -40,11 +42,17 @@ public class RetirarController implements Initializable {
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText(null);
                 alert.setContentText("You don't have enough data");
+
+                alert.showAndWait();
             } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("You have withdraw: " + Double.parseDouble(retirarTextArea.getText()) + "$");
+
+                alert.showAndWait();
                 try {
-                    Parent parent = FXMLLoader.load(getClass().getResource("menu_view.fxml"));
-                    Stage stage = (Stage) submitBtn.getScene().getWindow();
-                    stage.setScene(new Scene(parent));
+                    s.switchSceneMenu(mouseEvent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -53,9 +61,7 @@ public class RetirarController implements Initializable {
 
         cancelBtn.setOnMouseClicked(mouseEvent -> {
             try {
-                Parent parent = FXMLLoader.load(getClass().getResource("menu_view.fxml"));
-                Stage stage = (Stage) cancelBtn.getScene().getWindow();
-                stage.setScene(new Scene(parent));
+                s.switchSceneMenu(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();
             }

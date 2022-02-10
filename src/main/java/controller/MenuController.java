@@ -59,7 +59,7 @@ public class MenuController implements Initializable {
             }
         });
 
-        salirButton.setOnAction(mouseEvent -> {
+        salirButton.setOnMouseClicked(mouseEvent -> {
             try {
                 s.switchSceneLogin(mouseEvent);
             } catch (IOException e) {
@@ -67,8 +67,4 @@ public class MenuController implements Initializable {
             }
         });
     }
-
-
-
-
 }

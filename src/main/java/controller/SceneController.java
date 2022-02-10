@@ -1,6 +1,5 @@
 package controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,8 +11,8 @@ import java.io.IOException;
 
 public class SceneController {
 
-    public void switchSceneLogin(ActionEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("login_view.fxml"));
+    public void switchSceneLogin(MouseEvent event) throws IOException {
+        Parent parent = FXMLLoader.load(getClass().getResource("../com/example/login/login_view.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(parent));
 
