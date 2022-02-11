@@ -25,15 +25,13 @@ public class SceneController {
     }
 
     public void switchSceneIngresos(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ingresar_view.fxml"));
-        Parent parent = loader.load();
-        IngresarController ingresos = loader.getController();;
+        Parent parent = FXMLLoader.load((getClass().getResource("ingresar_view.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(parent));
     }
 
     public void switchSceneRetirar(MouseEvent event) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("retirar_view.fxml"));
+        Parent parent = FXMLLoader.load((getClass().getResource("retirar_view.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(parent));
     }

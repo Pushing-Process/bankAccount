@@ -2,14 +2,12 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import model.Cuenta;
+import model.Extracto;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,30 +24,31 @@ public class RetirarController implements Initializable {
     @FXML
     TextField retirarTextArea;
 
-    Double saldo = 10.0;
-
     static SceneController s = new SceneController();
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        saldoTextField.setText("Tu saldo es: " + saldo);
+        Cuenta cuenta = LoginController.cuentaUser;
+        double saldoActual = cuenta.getBalance();
+        saldoTextField.setText("Tu saldo es: " + saldoActual);
 
         submitBtn.setOnMouseClicked(mouseEvent -> {
-            if (saldo<Double.parseDouble(retirarTextArea.getText())) {
+            double saldoRetirado = Double.parseDouble(retirarTextArea.getText());
+            if (saldoActual < saldoRetirado) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText(null);
-                alert.setContentText("You don't have enough data");
-
+                alert.setContentText("No tienes suficiente saldo.");
                 alert.showAndWait();
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setHeaderText(null);
-                alert.setContentText("You have withdraw: " + Double.parseDouble(retirarTextArea.getText()) + "$");
-
+                alert.setContentText("Has retirado: " + saldoRetirado + "€");
+                cuenta.setBalance(cuenta.getBalance() - saldoRetirado);
+                cuenta.getExtractos().add(new Extracto(-saldoRetirado));
+                System.out.println(cuenta.getExtractos());
                 alert.showAndWait();
                 try {
                     s.switchSceneMenu(mouseEvent);

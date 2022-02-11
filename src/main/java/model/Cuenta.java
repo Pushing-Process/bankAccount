@@ -15,6 +15,10 @@ public class Cuenta {
         this.extractos = extractos;
     }
 
+    public Cuenta() {
+
+    }
+
     public String getUsuario() {
         return usuario;
     }

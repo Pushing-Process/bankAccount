@@ -37,4 +37,13 @@ public class Extracto {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Extracto{" +
+                "ingreso=" + ingreso +
+                ", saldo=" + saldo +
+                ", fecha=" + fecha +
+                '}';
+    }
 }
