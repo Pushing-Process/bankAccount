@@ -27,7 +27,6 @@ public class IngresarController implements Initializable {
 
         balanceT.setText(LoginController.cuentaUser.getBalance().toString());
 
-
         ingresarBtn.setOnMouseClicked(mouseEvent -> {
             double ingreso = Double.parseDouble(text_ingreso.getText());
             LoginController.cuentaUser.setBalance(LoginController.cuentaUser.getBalance()+ingreso);
