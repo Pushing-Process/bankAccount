@@ -9,19 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Cuenta;
-import service.CuentaService;
-import service.CuentaServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public static Cuenta cuentaUser;
-    CuentaService cuentaService= new CuentaServiceImpl();
-
-    List<Cuenta> cuentas = cuentaService.getAll();
 
     @FXML
     public TextField userTextField;
@@ -43,7 +37,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setOnMouseClicked(mouseEvent -> {
             try {
-                for (Cuenta cuenta : cuentas) {
+                for (Cuenta cuenta : Main.cuentas) {
                     if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword().equals(passwordTextField.getText())) {
                         cuentaUser = cuenta;
                         s.switchSceneMenu(mouseEvent);
