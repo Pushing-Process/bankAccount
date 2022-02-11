@@ -50,4 +50,14 @@ public class Cuenta {
     public void setExtractos(ArrayList<Extracto> extractos) {
         this.extractos = extractos;
     }
+
+    @Override
+    public String toString() {
+        return "Cuenta{" +
+                "usuario='" + usuario + '\'' +
+                ", password='" + password + '\'' +
+                ", balance=" + balance +
+                ", extractos=" + extractos +
+                '}';
+    }
 }

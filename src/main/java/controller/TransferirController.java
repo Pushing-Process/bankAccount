@@ -36,8 +36,8 @@ public class TransferirController implements Initializable {
         restTxt.setText("Tu saldo es: " + saldoActual);
 
         List<String> names = Main.cuentas.stream()
-                        .map(Cuenta::getUsuario)
-                        .collect(Collectors.toList());
+                .map(Cuenta::getUsuario)
+                .collect(Collectors.toList());
 
         submitBtn.setOnMouseClicked(mouseEvent -> {
             try {
@@ -49,7 +49,12 @@ public class TransferirController implements Initializable {
                     alert.setContentText("Nombre de persona es invalido");
                     alert.showAndWait();
                 } else {
-                    Cuenta cuentaToPass = new Cuenta();
+
+                    Cuenta cuentaToPass = Main.cuentas.stream()
+                            .filter(cuentaFilter -> personNameTxt.getText().trim().equals(cuentaFilter.getUsuario()))
+                            .findAny()
+                            .orElse(null);
+
                     if (saldoActual < moneyToPass) {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Error Dialog");
@@ -64,6 +69,11 @@ public class TransferirController implements Initializable {
                         cuenta.setBalance(cuenta.getBalance() - moneyToPass);
                         cuenta.getExtractos().add(new Extracto(-moneyToPass));
 
+                        cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
+                        cuentaToPass.getExtractos().add(new Extracto(+moneyToPass));
+
+                        System.out.println(Main.cuentas.toString());
+
                         System.out.println(cuenta.getExtractos());
                         alert.showAndWait();
                         try {
@@ -73,7 +83,7 @@ public class TransferirController implements Initializable {
                         }
                     }
                 }
-            }catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText("NUMBER FORMAT EXCEPTION");
