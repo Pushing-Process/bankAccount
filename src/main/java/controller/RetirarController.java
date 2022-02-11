@@ -34,29 +34,38 @@ public class RetirarController implements Initializable {
         saldoTextField.setText("Tu saldo es: " + saldoActual);
 
         submitBtn.setOnMouseClicked(mouseEvent -> {
-            double saldoRetirado = Double.parseDouble(retirarTextArea.getText());
-            if (saldoActual < saldoRetirado) {
+            try {
+                double saldoRetirado = Double.parseDouble(retirarTextArea.getText());
+                if (saldoActual < saldoRetirado) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No tienes suficiente saldo.");
+                    alert.showAndWait();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Has retirado: " + saldoRetirado + "€");
+                    cuenta.setBalance(cuenta.getBalance() - saldoRetirado);
+                    cuenta.getExtractos().add(new Extracto(-saldoRetirado));
+                    System.out.println(cuenta.getExtractos());
+                    alert.showAndWait();
+                    try {
+                        s.switchSceneMenu(mouseEvent);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }catch(NumberFormatException nfe){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("No tienes suficiente saldo.");
+                alert.setHeaderText("NUMBER FORMAT EXCEPTION");
+                alert.setContentText("Introduce numeros");
                 alert.showAndWait();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Success");
-                alert.setHeaderText(null);
-                alert.setContentText("Has retirado: " + saldoRetirado + "€");
-                cuenta.setBalance(cuenta.getBalance() - saldoRetirado);
-                cuenta.getExtractos().add(new Extracto(-saldoRetirado));
-                System.out.println(cuenta.getExtractos());
-                alert.showAndWait();
-                try {
-                    s.switchSceneMenu(mouseEvent);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         });
+
 
         cancelBtn.setOnMouseClicked(mouseEvent -> {
             try {
