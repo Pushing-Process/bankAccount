@@ -27,8 +27,7 @@ public class SceneController {
     public void switchSceneIngresos(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ingresar_view.fxml"));
         Parent parent = loader.load();
-        IngresarController ingresos = loader.getController();
-        ingresos.setDatos(LoginController.cuentaUser.getBalance().toString());
+        IngresarController ingresos = loader.getController();;
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(parent));
     }
