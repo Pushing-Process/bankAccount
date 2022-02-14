@@ -38,7 +38,13 @@ public class TransferirController implements Initializable {
         List<String> names = Main.cuentas.stream()
                 .map(Cuenta::getUsuario)
                 .collect(Collectors.toList());
-
+        cancelBtn.setOnMouseClicked(mouseEvent -> {
+            try {
+                s.switchSceneMenu(mouseEvent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
         submitBtn.setOnMouseClicked(mouseEvent -> {
 
             String nameTxt = personNameTxt.getText().trim();

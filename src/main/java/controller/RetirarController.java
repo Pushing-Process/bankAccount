@@ -26,7 +26,6 @@ public class RetirarController implements Initializable {
 
     static SceneController s = new SceneController();
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Cuenta cuenta = LoginController.cuentaUser;
