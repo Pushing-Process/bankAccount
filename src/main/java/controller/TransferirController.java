@@ -40,9 +40,12 @@ public class TransferirController implements Initializable {
                 .collect(Collectors.toList());
 
         submitBtn.setOnMouseClicked(mouseEvent -> {
+
+            String nameTxt = personNameTxt.getText().trim();
+
             try {
                 double moneyToPass = Double.parseDouble(moneyCountTxt.getText());
-                if (!names.contains(personNameTxt.getText().trim())) {
+                if (!names.contains(nameTxt) || nameTxt.equalsIgnoreCase(cuenta.getUsuario())) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText(null);
@@ -51,7 +54,7 @@ public class TransferirController implements Initializable {
                 } else {
 
                     Cuenta cuentaToPass = Main.cuentas.stream()
-                            .filter(cuentaFilter -> personNameTxt.getText().trim().equals(cuentaFilter.getUsuario()))
+                            .filter(cuentaFilter -> nameTxt.equalsIgnoreCase(cuentaFilter.getUsuario()))
                             .findAny()
                             .orElse(null);
 

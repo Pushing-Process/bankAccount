@@ -10,16 +10,15 @@ import model.Cuenta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Main extends Application {
 
     public static List<Cuenta> cuentas = new ArrayList<>();
 
     static {
-        cuentas.add(new Cuenta("dani", "111", (double) 100, new ArrayList<>()));
-        cuentas.add(new Cuenta("flavio", "111", (double) 110, new ArrayList<>()));
-        cuentas.add(new Cuenta("oleh", "111", (double) 120, new ArrayList<>()));
+        cuentas.add(new Cuenta("dani", 111, (double) 100, new ArrayList<>()));
+        cuentas.add(new Cuenta("flavio", 111, (double) 110, new ArrayList<>()));
+        cuentas.add(new Cuenta("oleh", 111, (double) 120, new ArrayList<>()));
     }
 
     @Override
