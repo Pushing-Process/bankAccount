@@ -14,6 +14,7 @@ public class Extracto {
         this.fecha = new Date();
     }
 
+
     public boolean isIngreso() {
         return ingreso;
     }
