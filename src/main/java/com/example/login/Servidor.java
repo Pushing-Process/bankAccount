@@ -9,10 +9,6 @@ import javafx.stage.Stage;
 public class Servidor extends Application {
 
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
@@ -20,5 +16,9 @@ public class Servidor extends Application {
         stage.setResizable(false);
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch();
     }
 }

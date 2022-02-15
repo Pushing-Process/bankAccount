@@ -76,10 +76,12 @@ public class TransferirController implements Initializable {
                         alert.setHeaderText(null);
                         alert.setContentText("Has transferido: " + moneyToPass + "€");
                         cuenta.setBalance(cuenta.getBalance() - moneyToPass);
-                        cuenta.getExtractos().add(new Extracto(-moneyToPass));
+                        cuenta.getExtractos().add(new Extracto(cuenta.getBalance(), -moneyToPass,
+                                Extracto.Tipo.TRANSFERENCIA));
 
                         cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
-                        cuentaToPass.getExtractos().add(new Extracto(+moneyToPass));
+                        cuentaToPass.getExtractos().add(new Extracto(cuentaToPass.getBalance(), moneyToPass,
+                                Extracto.Tipo.TRANSFERENCIA));
 
                         System.out.println(Main.cuentas.toString());
 

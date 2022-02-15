@@ -3,22 +3,26 @@ package model;
 import java.util.Date;
 
 public class Extracto {
-    private double total;
+    public Extracto(double total, double saldo, Tipo tipo) {
+        this.total = total;
+        this.saldo = saldo;
+        this.tipo = tipo;
+    }
 
+    private double total;
     private double saldo;
     private Tipo tipo;
 
-    public Extracto(double saldo, double total, Tipo tipo) {
-        this.saldo = saldo;
+    public void setTotal(double total) {
         this.total = total;
-        this.tipo = tipo;
-        this.fecha = new Date();
     }
-
-    private Date fecha;
 
     public double getTotal() {
         return total;
+    }
+
+    public enum Tipo {
+        INGRESO, RETIRO, TRANSFERENCIA
     }
 
     public double getSaldo() {
@@ -29,27 +33,11 @@ public class Extracto {
         this.saldo = saldo;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
     public Tipo getTipo() {
         return tipo;
     }
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
-    }
-
-    public enum Tipo {
-        INGRESO, RETIRO, TRANSFERENCIA
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 }

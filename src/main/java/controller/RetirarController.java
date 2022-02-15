@@ -47,7 +47,7 @@ public class RetirarController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Has retirado: " + saldoRetirado + "€");
                     cuenta.setBalance(cuenta.getBalance() - saldoRetirado);
-                    cuenta.getExtractos().add(new Extracto(-saldoRetirado));
+                    cuenta.getExtractos().add(new Extracto(cuenta.getBalance(), -saldoRetirado, Extracto.Tipo.RETIRO));
                     System.out.println(cuenta.getExtractos());
                     alert.showAndWait();
                     try {
