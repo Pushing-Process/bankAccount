@@ -5,12 +5,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import model.Cuenta;
 import model.Extracto;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class IngresarController implements Initializable {
@@ -25,15 +24,15 @@ public class IngresarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Cuenta cuenta = LoginController.cuentaUser;
         balanceT.setText(LoginController.cuentaUser.getBalance().toString());
 
         ingresarBtn.setOnMouseClicked(mouseEvent -> {
             try {
                 double ingreso = Double.parseDouble(text_ingreso.getText());
-                LoginController.cuentaUser.setBalance(LoginController.cuentaUser.getBalance() + ingreso);
-                balanceT.setText(LoginController.cuentaUser.getBalance().toString());
-                Extracto extracto = new Extracto(LoginController.cuentaUser.getBalance());
+                LoginController.cuentaUser.setBalance(cuenta.getBalance() + ingreso);
+                balanceT.setText(cuenta.getBalance().toString());
+                Extracto extracto = new Extracto(cuenta.getBalance(), ingreso, Extracto.Tipo.INGRESO, null);
                 LoginController.cuentaUser.getExtractos().add(extracto);
             }catch(NumberFormatException nfe){
                 Alert alert = new Alert(Alert.AlertType.ERROR);

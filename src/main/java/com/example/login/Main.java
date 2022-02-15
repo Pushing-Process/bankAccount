@@ -23,7 +23,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
         stage.setTitle("login");
         stage.setResizable(false);

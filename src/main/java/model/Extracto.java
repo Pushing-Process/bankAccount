@@ -1,26 +1,25 @@
 package model;
 
-import java.util.Date;
-
 public class Extracto {
-    // Si el ingreso es negativo, se trata de una extraccion.
-    private boolean ingreso;
+    private Cuenta personaTransferencia;
+
+    private double total;
     private double saldo;
-    private Date fecha;
+    private Tipo tipo;
 
-    public Extracto(double saldo) {
-        this.ingreso = saldo > 0;
+    public Extracto(double total, double saldo, Tipo tipo, Cuenta personaTransferencia) {
+        this.total = total;
         this.saldo = saldo;
-        this.fecha = new Date();
+        this.tipo = tipo;
+        this.personaTransferencia = personaTransferencia;
     }
 
-
-    public boolean isIngreso() {
-        return ingreso;
+    public double getTotal() {
+        return total;
     }
 
-    public void setIngreso(boolean ingreso) {
-        this.ingreso = ingreso;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public double getSaldo() {
@@ -31,20 +30,23 @@ public class Extracto {
         this.saldo = saldo;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Tipo getTipo() {
+        return tipo;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
     }
 
-    @Override
-    public String toString() {
-        return "Extracto{" +
-                "ingreso=" + ingreso +
-                ", saldo=" + saldo +
-                ", fecha=" + fecha +
-                '}';
+    public Cuenta getPersonaTransferencia() {
+        return personaTransferencia;
+    }
+
+    public void setPersonaTransferencia(Cuenta personaTransferencia) {
+        this.personaTransferencia = personaTransferencia;
+    }
+
+    public enum Tipo {
+        INGRESO, RETIRO, TRANSFERENCIA
     }
 }

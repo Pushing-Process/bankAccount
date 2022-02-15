@@ -30,12 +30,18 @@ public class SaldoController implements Initializable {
         Cuenta cuenta = LoginController.cuentaUser;
         saldoTextArea.setText("Saldo\t\t\t " + cuenta.getBalance() + "\n");
         for (Extracto extracto : cuenta.getExtractos()) {
-            if (extracto.isIngreso()) {
-                saldoTextArea.appendText("Ingreso\t\t\t");
-            } else {
-                saldoTextArea.appendText("Extracto\t\t\t");
+
+            switch (extracto.getTipo()) {
+                case INGRESO:
+                    saldoTextArea.appendText("Ingreso\t\t\t");
+                    break;
+                case RETIRO:
+                    saldoTextArea.appendText("Retiro\t\t\t");
+                    break;
+                case TRANSFERENCIA:
+                    saldoTextArea.appendText("Transferencia\t\t\t");
+                    break;
             }
-            saldoTextArea.appendText(extracto.getSaldo() + "\n");
         }
 
         volverBtn.setOnMouseClicked(mouseEvent -> {
