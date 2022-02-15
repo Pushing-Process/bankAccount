@@ -1,28 +1,25 @@
 package model;
 
-import java.util.Date;
-
 public class Extracto {
-    public Extracto(double total, double saldo, Tipo tipo) {
-        this.total = total;
-        this.saldo = saldo;
-        this.tipo = tipo;
-    }
+    private Cuenta personaTransferencia;
 
     private double total;
     private double saldo;
     private Tipo tipo;
 
-    public void setTotal(double total) {
+    public Extracto(double total, double saldo, Tipo tipo, Cuenta personaTransferencia) {
         this.total = total;
+        this.saldo = saldo;
+        this.tipo = tipo;
+        this.personaTransferencia = personaTransferencia;
     }
 
     public double getTotal() {
         return total;
     }
 
-    public enum Tipo {
-        INGRESO, RETIRO, TRANSFERENCIA
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public double getSaldo() {
@@ -39,5 +36,17 @@ public class Extracto {
 
     public void setTipo(Tipo tipo) {
         this.tipo = tipo;
+    }
+
+    public Cuenta getPersonaTransferencia() {
+        return personaTransferencia;
+    }
+
+    public void setPersonaTransferencia(Cuenta personaTransferencia) {
+        this.personaTransferencia = personaTransferencia;
+    }
+
+    public enum Tipo {
+        INGRESO, RETIRO, TRANSFERENCIA
     }
 }

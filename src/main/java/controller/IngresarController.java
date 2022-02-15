@@ -32,7 +32,7 @@ public class IngresarController implements Initializable {
                 double ingreso = Double.parseDouble(text_ingreso.getText());
                 LoginController.cuentaUser.setBalance(cuenta.getBalance() + ingreso);
                 balanceT.setText(cuenta.getBalance().toString());
-                Extracto extracto = new Extracto(cuenta.getBalance(), ingreso, Extracto.Tipo.INGRESO);
+                Extracto extracto = new Extracto(cuenta.getBalance(), ingreso, Extracto.Tipo.INGRESO, null);
                 LoginController.cuentaUser.getExtractos().add(extracto);
             }catch(NumberFormatException nfe){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
