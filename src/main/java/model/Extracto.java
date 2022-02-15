@@ -3,24 +3,22 @@ package model;
 import java.util.Date;
 
 public class Extracto {
-    // Si el ingreso es negativo, se trata de una extraccion.
-    private boolean ingreso;
-    private double saldo;
-    private Date fecha;
+    private double total;
 
-    public Extracto(double saldo) {
-        this.ingreso = saldo > 0;
+    private double saldo;
+    private Tipo tipo;
+
+    public Extracto(double saldo, double total, Tipo tipo) {
         this.saldo = saldo;
+        this.total = total;
+        this.tipo = tipo;
         this.fecha = new Date();
     }
 
+    private Date fecha;
 
-    public boolean isIngreso() {
-        return ingreso;
-    }
-
-    public void setIngreso(boolean ingreso) {
-        this.ingreso = ingreso;
+    public double getTotal() {
+        return total;
     }
 
     public double getSaldo() {
@@ -31,20 +29,27 @@ public class Extracto {
         this.saldo = saldo;
     }
 
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+
+    public enum Tipo {
+        INGRESO, RETIRO, TRANSFERENCIA
+    }
+
     public Date getFecha() {
         return fecha;
     }
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-
-    @Override
-    public String toString() {
-        return "Extracto{" +
-                "ingreso=" + ingreso +
-                ", saldo=" + saldo +
-                ", fecha=" + fecha +
-                '}';
     }
 }
