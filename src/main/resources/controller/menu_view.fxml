@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-
 <?import javafx.scene.Cursor?>
-<Pane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DisplacementMap?>
+<?import javafx.scene.effect.FloatMap?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<Pane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
+      fx:controller="controller.MenuController">
    <children>
-      <ImageView nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ImageView nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                 AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../img/back_menu.jpg" />
+            <Image url="@../img/back_menu.jpg"/>
          </image>
          <cursor>
-            <Cursor fx:constant="DEFAULT" />
+            <Cursor fx:constant="DEFAULT"/>
          </cursor>
          <effect>
             <Lighting diffuseConstant="0.81" specularConstant="0.32" specularExponent="27.44" surfaceScale="3.24">
@@ -39,7 +50,7 @@
                         <Label text="Ingreso" textFill="WHITE" />
                         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/deposit.png"/>
                            </image>
                            <effect>
                               <DisplacementMap>
@@ -56,7 +67,7 @@
                         <Label text="Retiro" textFill="WHITE" />
                         <ImageView fx:id="retiros" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/withdraw.png"/>
                            </image>
                         </ImageView>
                      </children>
@@ -66,7 +77,7 @@
                         <Label text="Transferencia" textFill="WHITE" />
                         <ImageView fx:id="transferencia" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/transaction.png"/>
                            </image>
                         </ImageView>
                      </children>
@@ -80,7 +91,7 @@
                         <Label text="Ver Saldo" textFill="WHITE" />
                         <ImageView fx:id="saldo" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/receipt.png"/>
                            </image>
                         </ImageView>
                      </children>
@@ -90,7 +101,7 @@
                         <Label text="Estadisticas" textFill="WHITE" />
                         <ImageView fx:id="estadistica" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../img/play.png" />
+                              <Image url="@../img/stats.png"/>
                            </image>
                         </ImageView>
                      </children>
