@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ServerController">
+    <children>
+        <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../img/server_back.png" />
+            </image>
+        </ImageView>
+      <Label fx:id="userNameTxt" layoutX="14.0" layoutY="137.0" text="User:" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="userPasswordTxt" layoutX="37.0" layoutY="202.0" text="Password:" textFill="WHITE" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
