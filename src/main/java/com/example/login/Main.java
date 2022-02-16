@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Cuenta;
+import server.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,13 +23,15 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("login_view.fxml"));
         stage.setTitle("login");
         stage.setResizable(false);
         stage.setScene(new Scene(root));
         stage.show();
+
+        new Server().start(new Stage());
     }
 
     public static void main(String[] args) {

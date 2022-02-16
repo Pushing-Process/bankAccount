@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
                             String userName = userTextField.getText();
                             LoggedUser data = new LoggedUser();
                             data.setUserPassword(password);
-                            data.setUserPassword(userName);
+                            data.setUserName(userName);
 
                             ObjectOutputStream outputStream = new ObjectOutputStream(localhost.getOutputStream());
                             outputStream.writeObject(data);

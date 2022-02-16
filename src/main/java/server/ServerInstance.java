@@ -1,7 +1,5 @@
 package server;
 
-import controller.ServerController;
-import javafx.scene.control.Label;
 import model.LoggedUser;
 
 import java.io.IOException;
@@ -12,14 +10,16 @@ import java.net.Socket;
 public class ServerInstance {
 
     private ServerSocket serverSocket;
+    private SendMessage listener;
     private Socket socket;
     private ObjectInputStream objectInputStream;
 
-    public ServerInstance(ServerSocket serverSocket) {
+    public ServerInstance(ServerSocket serverSocket, SendMessage listener) {
         try {
             this.serverSocket = serverSocket;
             this.socket = serverSocket.accept();
             this.objectInputStream = new ObjectInputStream(socket.getInputStream());
+            this.listener = listener;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,18 +38,16 @@ public class ServerInstance {
         }
     }
 
-    public void receiveMessage(Label userNameTxt, Label passwordNameTxt) {
-        new Thread(() -> {
-            while (socket.isConnected()) {
-                try {
-                    LoggedUser loggedUser = (LoggedUser) objectInputStream.readObject();
-                    ServerController.addLabel(loggedUser, userNameTxt, passwordNameTxt);
-                } catch (IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
-                    closeEverything(socket, objectInputStream);
-                    break;
-                }
+    public void receiveMessage() {
+        while (socket.isConnected()) {
+            try {
+                LoggedUser loggedUser = (LoggedUser) objectInputStream.readObject();
+                listener.sendMessage(loggedUser);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+                closeEverything(socket, objectInputStream);
+                break;
             }
-        }).start();
+        }
     }
 }
