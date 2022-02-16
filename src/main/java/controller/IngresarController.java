@@ -8,8 +8,13 @@ import javafx.scene.control.TextField;
 import model.Cuenta;
 import model.Extracto;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class IngresarController implements Initializable {
@@ -25,21 +30,24 @@ public class IngresarController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Cuenta cuenta = LoginController.cuentaUser;
-        balanceT.setText(LoginController.cuentaUser.getBalance().toString());
+        balanceT.setText(cuenta.getBalance().toString());
 
         ingresarBtn.setOnMouseClicked(mouseEvent -> {
             try {
                 double ingreso = Double.parseDouble(text_ingreso.getText());
-                LoginController.cuentaUser.setBalance(cuenta.getBalance() + ingreso);
+                cuenta.setBalance(cuenta.getBalance() + ingreso);
                 balanceT.setText(cuenta.getBalance().toString());
                 Extracto extracto = new Extracto(cuenta.getBalance(), ingreso, Extracto.Tipo.INGRESO);
                 LoginController.cuentaUser.getExtractos().add(extracto);
-            }catch(NumberFormatException nfe){
+                new EnvioController(cuenta);
+            } catch (NumberFormatException nfe) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText("NUMBER FORMAT EXCEPTION");
                 alert.setContentText("Introduce numbers");
                 alert.showAndWait();
+            } catch (NoSuchPaddingException | IllegalBlockSizeException | IOException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+                e.printStackTrace();
             }
         });
         volverBtn.setOnMouseClicked(mouseEvent -> {

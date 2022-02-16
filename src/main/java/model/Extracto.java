@@ -1,6 +1,8 @@
 package model;
 
-public class Extracto {
+import java.io.Serializable;
+
+public class Extracto implements Serializable {
     private Cuenta personaTransferencia;
 
     private double total;

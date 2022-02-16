@@ -1,13 +1,13 @@
 package controller;
 
 import com.example.login.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.Cuenta;
 
 import javax.crypto.BadPaddingException;
@@ -37,20 +37,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setOnMouseClicked(mouseEvent -> {
             try {
-                for (Cuenta cuenta : Main.cuentas) {
-                    if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword() == Integer.parseInt(passwordTextField.getText())) {
-                        cuentaUser = cuenta;
-                        new EnvioController(cuenta);
-                        s.switchSceneMenu(mouseEvent);
-                        return;
-                    }
-                }
-
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error Dialog");
-                alert.setHeaderText("Look, an Error Dialog");
-                alert.setContentText("I have a great message for you!");
-                alert.showAndWait();
+                extracted(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (NoSuchPaddingException e) {
@@ -65,5 +52,22 @@ public class LoginController implements Initializable {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void extracted(MouseEvent mouseEvent) throws IOException, NoSuchPaddingException,
+            IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        for (Cuenta cuenta : Main.cuentas) {
+            if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword() == Integer.parseInt(passwordTextField.getText())) {
+                cuentaUser = cuenta;
+                new EnvioController(cuenta);
+                s.switchSceneMenu(mouseEvent);
+                return;
+            }
+        }
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Dialog");
+        alert.setHeaderText("Look, an Error Dialog");
+        alert.setContentText("I have a great message for you!");
+        alert.showAndWait();
     }
 }

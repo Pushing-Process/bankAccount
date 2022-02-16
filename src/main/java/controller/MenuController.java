@@ -11,7 +11,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
-    private Cuenta cuenta;
     @FXML
     private VBox vBoxIngreso, vBoxRetiro, vBoxTransferencia, vBoxSaldo, vBoxEstadisticas;
 
