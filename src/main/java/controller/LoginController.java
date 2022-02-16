@@ -8,15 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.AES;
 import model.Cuenta;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -36,11 +33,6 @@ public class LoginController implements Initializable {
 
     static SceneController s = new SceneController();
 
-    @FXML
-    public void OnLoginButtonClick(ActionEvent event) {
-        SceneController s = new SceneController();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setOnMouseClicked(mouseEvent -> {
@@ -48,11 +40,7 @@ public class LoginController implements Initializable {
                 for (Cuenta cuenta : Main.cuentas) {
                     if (cuenta.getUsuario().equalsIgnoreCase(userTextField.getText()) && cuenta.getPassword() == Integer.parseInt(passwordTextField.getText())) {
                         cuentaUser = cuenta;
-                        Socket miConexion = new Socket("localhost", 56);
-                        AES aes = new AES();
-                        cuentaUser.setEncriptado(aes.encriptar(String.valueOf(cuenta.getPassword()), "ExamenPSP2Eval"));
-                        ObjectOutputStream oos = new ObjectOutputStream(miConexion.getOutputStream());
-                        oos.writeObject(cuentaUser);
+                        new EnvioController(cuenta);
                         s.switchSceneMenu(mouseEvent);
                         return;
                     }

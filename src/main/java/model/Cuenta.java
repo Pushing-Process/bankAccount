@@ -3,7 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cuenta implements Serializable {
+public class Cuenta implements Serializable, Cloneable {
     private String usuario;
     private Integer password;
     private Double balance;
@@ -61,5 +61,10 @@ public class Cuenta implements Serializable {
     public String toString() {
         return "Cuenta{" + "usuario='" + usuario + '\'' + ", password=" + encriptado + ", balance=" + balance + ", " +
                 "extractos=" + extractos + '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
