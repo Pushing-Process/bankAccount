@@ -1,12 +1,14 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Cuenta {
+public class Cuenta implements Serializable {
     private String usuario;
     private Integer password;
     private Double balance;
     private ArrayList<Extracto> extractos;
+    private String encriptado;
 
     public Cuenta(String usuario, Integer password, Double balance, ArrayList<Extracto> extractos) {
         this.usuario = usuario;
@@ -47,13 +49,17 @@ public class Cuenta {
         this.extractos = extractos;
     }
 
+    public String getEncriptado() {
+        return encriptado;
+    }
+
+    public void setEncriptado(String encriptado) {
+        this.encriptado = encriptado;
+    }
+
     @Override
     public String toString() {
-        return "Cuenta{" +
-                "usuario='" + usuario + '\'' +
-                ", password=" + password +
-                ", balance=" + balance +
-                ", extractos=" + extractos +
-                '}';
+        return "Cuenta{" + "usuario='" + usuario + '\'' + ", password=" + encriptado + ", balance=" + balance + ", " +
+                "extractos=" + extractos + '}';
     }
 }

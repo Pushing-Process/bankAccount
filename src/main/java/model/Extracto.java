@@ -14,6 +14,13 @@ public class Extracto {
         this.personaTransferencia = personaTransferencia;
     }
 
+    public Extracto(double total, double saldo, Tipo tipo) {
+        this.total = total;
+        this.saldo = saldo;
+        this.tipo = tipo;
+        this.personaTransferencia = null;
+    }
+
     public double getTotal() {
         return total;
     }

@@ -81,7 +81,7 @@ public class TransferirController implements Initializable {
 
                         cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
                         cuentaToPass.getExtractos().add(new Extracto(cuentaToPass.getBalance(), moneyToPass,
-                                Extracto.Tipo.TRANSFERENCIA, cuentaToPass));
+                                Extracto.Tipo.TRANSFERENCIA, cuenta));
 
                         System.out.println(Main.cuentas.toString());
 
