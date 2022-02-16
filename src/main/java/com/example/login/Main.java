@@ -1,6 +1,7 @@
 package com.example.login;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,7 +29,15 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setScene(new Scene(root));
         stage.show();
+        Platform.runLater(() -> {
+            try {
+                new Servidor().start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
+
 
     public static void main(String[] args) {
         launch();
