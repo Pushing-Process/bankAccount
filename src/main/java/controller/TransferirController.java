@@ -10,8 +10,13 @@ import javafx.scene.control.TextField;
 import model.Cuenta;
 import model.Extracto;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -82,6 +87,7 @@ public class TransferirController implements Initializable {
                         cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
                         cuentaToPass.getExtractos().add(new Extracto(cuentaToPass.getBalance(), moneyToPass,
                                 Extracto.Tipo.TRANSFERENCIA, cuenta));
+                        new EnvioController(cuenta);
 
                         System.out.println(Main.cuentas.toString());
 
@@ -100,6 +106,8 @@ public class TransferirController implements Initializable {
                 alert.setHeaderText("NUMBER FORMAT EXCEPTION");
                 alert.setContentText("Introduce numeros");
                 alert.showAndWait();
+            } catch (NoSuchPaddingException | IllegalBlockSizeException | IOException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+                e.printStackTrace();
             }
         });
     }

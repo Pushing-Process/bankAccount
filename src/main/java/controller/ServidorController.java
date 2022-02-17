@@ -67,9 +67,9 @@ public class ServidorController implements Initializable {
                 break;
             case TRANSFERENCIA:
                 if (extracto.getSaldo() > 0) {
-                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " a" + extracto.getPersonaTransferencia().getUsuario());
+                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " de parte de " + extracto.getPersonaTransferencia().getUsuario());
                 } else {
-                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a" + extracto.getPersonaTransferencia().getUsuario());
+                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a " + extracto.getPersonaTransferencia().getUsuario());
                 }
                 break;
         }

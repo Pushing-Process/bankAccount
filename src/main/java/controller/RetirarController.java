@@ -9,8 +9,13 @@ import javafx.scene.control.TextField;
 import model.Cuenta;
 import model.Extracto;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RetirarController implements Initializable {
@@ -48,6 +53,7 @@ public class RetirarController implements Initializable {
                     alert.setContentText("Has retirado: " + saldoRetirado + "€");
                     cuenta.setBalance(cuenta.getBalance() - saldoRetirado);
                     cuenta.getExtractos().add(new Extracto(cuenta.getBalance(), -saldoRetirado, Extracto.Tipo.RETIRO));
+                    new EnvioController(cuenta);
                     System.out.println(cuenta.getExtractos());
                     alert.showAndWait();
                     try {
@@ -56,12 +62,14 @@ public class RetirarController implements Initializable {
                         e.printStackTrace();
                     }
                 }
-            }catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
                 alert.setHeaderText("NUMBER FORMAT EXCEPTION");
                 alert.setContentText("Introduce numeros");
                 alert.showAndWait();
+            } catch (NoSuchPaddingException | IllegalBlockSizeException | IOException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
+                e.printStackTrace();
             }
         });
 

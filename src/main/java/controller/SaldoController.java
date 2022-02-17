@@ -33,13 +33,13 @@ public class SaldoController implements Initializable {
 
             switch (extracto.getTipo()) {
                 case INGRESO:
-                    saldoTextArea.appendText("Ingreso\t\t\t");
+                    saldoTextArea.appendText("Ingreso\t" + extracto.getSaldo() + "\n");
                     break;
                 case RETIRO:
-                    saldoTextArea.appendText("Retiro\t\t\t");
+                    saldoTextArea.appendText("Retiro\t" + extracto.getSaldo() + "\n");
                     break;
                 case TRANSFERENCIA:
-                    saldoTextArea.appendText("Transferencia\t\t\t");
+                    saldoTextArea.appendText("Transferencia\t" + extracto.getSaldo() + "\n");
                     break;
             }
         }
