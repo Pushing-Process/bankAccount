@@ -11,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ServidorController implements Initializable {
@@ -23,14 +25,14 @@ public class ServidorController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         new Thread(() -> {
             try {
-                extracted();
+                checkTipo();
             } catch (IOException | ClassNotFoundException | CloneNotSupportedException e) {
                 e.printStackTrace();
             }
         }).start();
     }
 
-    private void extracted() throws IOException, ClassNotFoundException, CloneNotSupportedException {
+    private void checkTipo() throws IOException, ClassNotFoundException, CloneNotSupportedException {
         ServerSocket server = new ServerSocket(56);
         Cuenta reciboDatos = null;
         Cuenta aux = null;
@@ -38,12 +40,38 @@ public class ServidorController implements Initializable {
         while (true) {
             Socket miConexion = server.accept();
             ObjectInputStream reciboDatosPak = new ObjectInputStream(miConexion.getInputStream());
-            if (reciboDatos == null) {
-                reciboDatos = (Cuenta) reciboDatosPak.readObject();
-                datosTextArea.appendText("\"" + reciboDatos.getUsuario() + "\" ha iniciado sesion " + reciboDatos.getEncriptado());
+            reciboDatos = (Cuenta) reciboDatosPak.readObject();
+            if (aux == null || !reciboDatos.getUsuario().equalsIgnoreCase(aux.getUsuario())) {
+                aux = (Cuenta) reciboDatos.clone();
+                datosTextArea.appendText(aux.getUsuario() + " ha iniciado sesion");
+                for (Extracto extracto : aux.getExtractos()) {
+                    checkTipo(reciboDatos, extracto);
+                }
+            } else if (aux.getUsuario().equalsIgnoreCase(reciboDatos.getUsuario())) {
+                ArrayList<Extracto> extractos = reciboDatos.getExtractos();
+                Extracto extracto = extractos.get(extractos.size() - 1);
+                checkTipo(reciboDatos, extracto);
             }
-            aux = (Cuenta) reciboDatosPak.readObject();
+            datosTextArea.appendText(" " + new Date().toString());
             miConexion.close();
+        }
+    }
+
+    private void checkTipo(Cuenta reciboDatos, Extracto extracto) {
+        switch (extracto.getTipo()) {
+            case INGRESO:
+                datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho un ingreso de " + extracto.getSaldo());
+                break;
+            case RETIRO:
+                datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho un retiro de " + extracto.getSaldo());
+                break;
+            case TRANSFERENCIA:
+                if (extracto.getSaldo() > 0) {
+                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " a" + extracto.getPersonaTransferencia().getUsuario());
+                } else {
+                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a" + extracto.getPersonaTransferencia().getUsuario());
+                }
+                break;
         }
     }
 }

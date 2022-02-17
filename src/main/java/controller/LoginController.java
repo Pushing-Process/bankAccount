@@ -38,17 +38,7 @@ public class LoginController implements Initializable {
         loginButton.setOnMouseClicked(mouseEvent -> {
             try {
                 extracted(mouseEvent);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (NoSuchPaddingException e) {
-                e.printStackTrace();
-            } catch (IllegalBlockSizeException e) {
-                e.printStackTrace();
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            } catch (BadPaddingException e) {
-                e.printStackTrace();
-            } catch (InvalidKeyException e) {
+            } catch (IOException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
                 e.printStackTrace();
             }
         });
