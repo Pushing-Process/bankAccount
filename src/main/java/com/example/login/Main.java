@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Cuenta;
+import model.Extracto;
 
 import java.io.IOException;
 import java.util.ArrayList;
