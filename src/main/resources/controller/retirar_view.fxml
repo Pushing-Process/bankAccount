@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RetirarController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RetirarController">
    <children>
       <ImageView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../img/back_menu.jpg" />
          </image>
       </ImageView>
-      <JFXButton fx:id="submitBtn" layoutX="416.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" text="Submit" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
-      <JFXButton fx:id="cancelBtn" layoutX="118.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="120.0" />
-      <Label fx:id="saldoTextField" layoutX="118.0" layoutY="134.0" prefHeight="25.0" prefWidth="140.0" text="Label" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0" />
+      <JFXButton fx:id="submitBtn" layoutX="416.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="#909090" stylesheets="@../com/example/login/Style.css" text="Submit" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="120.0" />
+      <JFXButton fx:id="cancelBtn" layoutX="118.0" layoutY="341.0" prefHeight="30.0" prefWidth="80.0" ripplerFill="#909090" stylesheets="@../com/example/login/Style.css" text="Cancel" textFill="WHITE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="120.0" />
+      <Label fx:id="saldoTextField" layoutX="118.0" layoutY="134.0" prefHeight="25.0" prefWidth="140.0" text="Label" textFill="WHITE" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <TextField fx:id="retirarTextArea" layoutX="340.0" layoutY="134.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="135.0" />
    </children>
 </AnchorPane>

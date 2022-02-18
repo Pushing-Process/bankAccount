@@ -52,7 +52,7 @@ public class ServidorController implements Initializable {
                 Extracto extracto = extractos.get(extractos.size() - 1);
                 checkTipo(reciboDatos, extracto);
             }
-            datosTextArea.appendText(" " + new Date().toString());
+            datosTextArea.appendText(" " + new Date() + "\n");
             miConexion.close();
         }
     }
@@ -60,16 +60,17 @@ public class ServidorController implements Initializable {
     private void checkTipo(Cuenta reciboDatos, Extracto extracto) {
         switch (extracto.getTipo()) {
             case INGRESO:
-                datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho un ingreso de " + extracto.getSaldo());
+                datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho un ingreso de " + extracto.getSaldo());
                 break;
             case RETIRO:
-                datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho un retiro de " + extracto.getSaldo());
+                datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho un retiro de " + extracto.getSaldo());
                 break;
             case TRANSFERENCIA:
                 if (extracto.getSaldo() > 0) {
-                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " de parte de " + extracto.getPersonaTransferencia().getUsuario());
+                    datosTextArea.appendText(reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " de " +
+                            "parte de " + extracto.getPersonaTransferencia().getUsuario());
                 } else {
-                    datosTextArea.appendText("\n" + reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a " + extracto.getPersonaTransferencia().getUsuario());
+                    datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a " + extracto.getPersonaTransferencia().getUsuario());
                 }
                 break;
         }

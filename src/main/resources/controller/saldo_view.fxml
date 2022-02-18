@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
-            fx:controller="controller.SaldoController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SaldoController">
     <children>
-        <ImageView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                   AnchorPane.topAnchor="0.0">
-            <Image url="@../img/back_menu.jpg"/>
+        <ImageView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Image url="@../img/back_menu.jpg" />
         </ImageView>
-        <TextArea fx:id="saldoTextArea" editable="false" layoutX="8.0" layoutY="69.0" prefHeight="231.0"
-                  prefWidth="585.0"/>
-        <Button fx:id="imprimirBtn" layoutX="163.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0"
-                prefWidth="137.0" text="Imprimir"/>
-        <Button fx:id="volverBtn" layoutX="300.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0"
-                prefWidth="137.0" text="Volver"/>
+        <TextArea fx:id="saldoTextArea" editable="false" layoutX="8.0" layoutY="69.0" prefHeight="231.0" prefWidth="585.0" />
+      <JFXButton fx:id="volverBtn" layoutX="368.0" layoutY="341.0" prefWidth="100.0" stylesheets="@../com/example/login/Style.css" text="volver" textFill="WHITE" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="180.0" />
+      <JFXButton fx:id="imprimirBtn" layoutX="172.0" layoutY="341.0" prefWidth="100.0" stylesheets="@../com/example/login/Style.css" text="Imprimir" textFill="WHITE" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="180.0" />
     </children>
 
 </AnchorPane>

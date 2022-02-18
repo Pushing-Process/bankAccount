@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import model.Cuenta;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +22,6 @@ public class MenuController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         vBoxRetiro.setOnMouseClicked(mouseEvent -> {
             try {
-
                 s.switchSceneRetirar(mouseEvent);
             } catch (IOException e) {
                 e.printStackTrace();

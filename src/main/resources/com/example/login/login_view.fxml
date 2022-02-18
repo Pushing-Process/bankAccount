@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -14,22 +14,19 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-            minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
-            fx:controller="controller.LoginController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
     <children>
-        <ImageView nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <ImageView nodeOrientation="RIGHT_TO_LEFT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <image>
-                <Image url="@../../../img/back_menu.jpg"/>
+                <Image url="@../../../img/back_menu.jpg" />
             </image>
             <cursor>
-                <Cursor fx:constant="DEFAULT"/>
+                <Cursor fx:constant="DEFAULT" />
             </cursor>
             <effect>
                 <Lighting diffuseConstant="0.81" specularConstant="0.32" specularExponent="27.44" surfaceScale="3.24">
                     <bumpInput>
-                        <SepiaTone/>
+                        <SepiaTone />
                </bumpInput>
                <light>
                   <Light.Distant>
@@ -44,25 +41,20 @@
         <TextField fx:id="userTextField" layoutX="332.0" layoutY="166.0" prefHeight="25.0" prefWidth="218.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="166.0" />
         <Label layoutX="262.0" layoutY="165.0" text="User" textFill="WHITE" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="165.0">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <Label layoutX="242.0" layoutY="206.0" text="Password" textFill="WHITE" AnchorPane.rightAnchor="283.0"
-               AnchorPane.topAnchor="206.0">
+        <Label layoutX="242.0" layoutY="206.0" text="Password" textFill="WHITE" AnchorPane.rightAnchor="283.0" AnchorPane.topAnchor="206.0">
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
-        <PasswordField fx:id="passwordTextField" layoutX="332.0" layoutY="207.0" prefHeight="25.0" prefWidth="218.0"
-                       AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="207.0"/>
-        <Button fx:id="loginButton" alignment="CENTER" layoutX="264.0" layoutY="325.0" mnemonicParsing="false"
-                prefHeight="40.0" prefWidth="75.0" text="Login" AnchorPane.bottomAnchor="35.0"
-                AnchorPane.leftAnchor="264.0" AnchorPane.rightAnchor="261.0"/>
-        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="148.0" pickOnBounds="true"
-                   preserveRatio="true" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="148.0">
+        <PasswordField fx:id="passwordTextField" layoutX="332.0" layoutY="207.0" prefHeight="25.0" prefWidth="218.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="207.0" />
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="148.0">
             <image>
-                <Image url="@../../../img/bank.png"/>
+                <Image url="@../../../img/bank.png" />
             </image>
         </ImageView>
+      <JFXButton fx:id="loginButton" layoutX="250.0" layoutY="331.0" prefHeight="30.0" prefWidth="100.0" stylesheets="@Style.css" text="Login" textFill="WHITE" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" />
     </children>
 </AnchorPane>

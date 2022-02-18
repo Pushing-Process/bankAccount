@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,8 +22,8 @@
                 <TextField fx:id="text_ingreso" />
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                     <children>
-                        <Button fx:id="ingresarBtn" lineSpacing="20.0" mnemonicParsing="false" text="Ingresar" />
-                        <Button fx:id="volverBtn" mnemonicParsing="false" text="Volver" />
+                  <JFXButton fx:id="volverBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css" text="Volver" textFill="WHITE" />
+                  <JFXButton fx:id="ingresarBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css" text="Ingresar" textFill="WHITE" />
                     </children>
                 </HBox>
             </children>

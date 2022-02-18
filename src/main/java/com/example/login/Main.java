@@ -11,6 +11,7 @@ import model.Cuenta;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Main extends Application {
 
@@ -29,6 +30,9 @@ public class Main extends Application {
         stage.setResizable(false);
         stage.setScene(new Scene(root));
         stage.show();
+
+        root.getStylesheets().add(Objects.requireNonNull(getClass().getResource("Style.css")).toExternalForm());
+
         Platform.runLater(() -> {
             try {
                 new Servidor().start(new Stage());
