@@ -61,11 +61,21 @@ public class Extracto implements Serializable {
 
     @Override
     public String toString() {
-        return "Extracto{" +
-                "personaTransferencia=" + personaTransferencia.getUsuario() +
-                ", total=" + total +
-                ", saldo=" + saldo +
-                ", tipo=" + tipo +
-                '}';
+        if (personaTransferencia == null){
+            return "Extracto{" +
+                    "personaTransferencia=" + personaTransferencia +
+                    ", total=" + total +
+                    ", saldo=" + saldo +
+                    ", tipo=" + tipo +
+                    '}';
+        }else{
+            return "Extracto{" +
+                    "personaTransferencia=" + personaTransferencia.getUsuario() +
+                    ", total=" + total +
+                    ", saldo=" + saldo +
+                    ", tipo=" + tipo +
+                    '}';
+        }
+
     }
 }
