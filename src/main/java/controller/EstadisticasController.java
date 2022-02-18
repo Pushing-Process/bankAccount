@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import model.Extracto;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,23 +19,27 @@ public class EstadisticasController implements Initializable {
 
     @FXML
     public PieChart grafico;
-    public Button mostrar;
+
+    @FXML
+    public Button volverBtn;
+
+    SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        grafico = new PieChart();
-        ObservableList<PieChart.Data> a = getChartData();
-        System.out.println(a.toString());
-        grafico.setData(a);
+        grafico.setData(getChartData());
         grafico.setLegendSide(Side.LEFT);
         grafico.setStartAngle(90);
         grafico.setTitle("Movimientos de la cuenta");
         grafico.setClockwise(false);
-    }
 
-    public void mostrarOnclick(MouseEvent mouseEvent) {
-
-
+        volverBtn.setOnMouseClicked(mouseEvent -> {
+            try {
+                s.switchSceneMenu(mouseEvent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private ObservableList<PieChart.Data> getChartData() {
