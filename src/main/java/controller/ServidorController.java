@@ -11,6 +11,7 @@ import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -52,7 +53,8 @@ public class ServidorController implements Initializable {
                 Extracto extracto = extractos.get(extractos.size() - 1);
                 checkTipo(reciboDatos, extracto);
             }
-            datosTextArea.appendText(" " + new Date() + "\n");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
+            datosTextArea.appendText(" " + sdf.format(new Date()) + "\n");
             miConexion.close();
         }
     }
