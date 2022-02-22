@@ -54,25 +54,27 @@ public class ServidorController implements Initializable {
                 checkTipo(reciboDatos, extracto);
             }
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
-            datosTextArea.appendText(" " + sdf.format(new Date()) + "\n");
+            datosTextArea.appendText(" - " + sdf.format(new Date()) + "\n");
             miConexion.close();
         }
     }
 
     private void checkTipo(Cuenta reciboDatos, Extracto extracto) {
+        datosTextArea.appendText("\'" + reciboDatos.getUsuario() + "\'");
         switch (extracto.getTipo()) {
             case INGRESO:
-                datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho un ingreso de " + extracto.getSaldo());
+                datosTextArea.appendText(" ha hecho un ingreso de " + extracto.getSaldo());
                 break;
             case RETIRO:
-                datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho un retiro de " + extracto.getSaldo());
+                datosTextArea.appendText(" ha hecho un retiro de " + extracto.getSaldo());
                 break;
             case TRANSFERENCIA:
                 if (extracto.getSaldo() > 0) {
-                    datosTextArea.appendText(reciboDatos.getUsuario() + " ha recibido una " + "transferencia " + "de " + extracto.getSaldo() + " de " +
+                    datosTextArea.appendText(" ha recibido una " + "transferencia " + "de " + extracto.getSaldo() +
+                            " de " +
                             "parte de " + extracto.getPersonaTransferencia().getUsuario());
                 } else {
-                    datosTextArea.appendText(reciboDatos.getUsuario() + " ha hecho una transferencia " + "de " + extracto.getSaldo() + " a " + extracto.getPersonaTransferencia().getUsuario());
+                    datosTextArea.appendText(" ha hecho una transferencia " + "de " + extracto.getSaldo() + " a " + extracto.getPersonaTransferencia().getUsuario());
                 }
                 break;
         }
