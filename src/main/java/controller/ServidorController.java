@@ -44,7 +44,7 @@ public class ServidorController implements Initializable {
             reciboDatos = (Cuenta) reciboDatosPak.readObject();
             if (aux == null || !reciboDatos.getUsuario().equalsIgnoreCase(aux.getUsuario())) {
                 aux = (Cuenta) reciboDatos.clone();
-                datosTextArea.appendText(aux.getUsuario() + " ha iniciado sesion");
+                datosTextArea.appendText(aux.getUsuario() + " ha iniciado sesion con contraseña  " + aux.getEncriptado());
                 for (Extracto extracto : aux.getExtractos()) {
                     checkTipo(reciboDatos, extracto);
                 }
