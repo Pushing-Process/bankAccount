@@ -23,16 +23,13 @@ import java.util.stream.Collectors;
 
 public class TransferirController implements Initializable {
 
+    static SceneController s = new SceneController();
     @FXML
     JFXButton submitBtn, cancelBtn;
-
     @FXML
     TextField personNameTxt, moneyCountTxt;
-
     @FXML
     Label restTxt;
-
-    static SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

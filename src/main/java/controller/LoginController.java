@@ -21,17 +21,13 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     public static Cuenta cuentaUser;
-
+    static SceneController s = new SceneController();
     @FXML
     public TextField userTextField;
-
     @FXML
     public PasswordField passwordTextField;
-
     @FXML
     public Button loginButton;
-
-    static SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

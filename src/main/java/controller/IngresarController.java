@@ -19,11 +19,11 @@ import java.util.ResourceBundle;
 
 public class IngresarController implements Initializable {
     @FXML
+    public TextField balanceT;
+    @FXML
     private Button ingresarBtn;
     @FXML
     private Button volverBtn;
-    @FXML
-    public TextField balanceT;
     @FXML
     private TextField text_ingreso;
 

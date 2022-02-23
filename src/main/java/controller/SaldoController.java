@@ -14,16 +14,13 @@ import java.util.ResourceBundle;
 
 public class SaldoController implements Initializable {
 
+    SceneController s = new SceneController();
     @FXML
     private TextArea saldoTextArea;
-
     @FXML
     private Button imprimirBtn;
-
     @FXML
     private Button volverBtn;
-
-    SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

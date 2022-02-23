@@ -10,13 +10,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuController implements Initializable {
+    static SceneController s = new SceneController();
     @FXML
     private VBox vBoxIngreso, vBoxRetiro, vBoxTransferencia, vBoxSaldo, vBoxEstadisticas;
-
     @FXML
     private Button salirButton;
-
-    static SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

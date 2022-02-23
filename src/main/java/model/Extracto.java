@@ -55,20 +55,16 @@ public class Extracto implements Serializable {
         this.personaTransferencia = personaTransferencia;
     }
 
-    public enum Tipo {
-        INGRESO, RETIRO, TRANSFERENCIA
-    }
-
     @Override
     public String toString() {
-        if (personaTransferencia == null){
+        if (personaTransferencia == null) {
             return "Extracto{" +
                     "personaTransferencia=" + personaTransferencia +
                     ", total=" + total +
                     ", saldo=" + saldo +
                     ", tipo=" + tipo +
                     '}';
-        }else{
+        } else {
             return "Extracto{" +
                     "personaTransferencia=" + personaTransferencia.getUsuario() +
                     ", total=" + total +
@@ -77,5 +73,9 @@ public class Extracto implements Serializable {
                     '}';
         }
 
+    }
+
+    public enum Tipo {
+        INGRESO, RETIRO, TRANSFERENCIA
     }
 }

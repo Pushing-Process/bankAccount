@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,8 +17,23 @@
                 <Image url="@../img/back_menu.jpg" />
             </image>
         </ImageView>
-      <PieChart fx:id="grafico" layoutX="73.0" layoutY="44.0" prefHeight="269.0" prefWidth="454.0" AnchorPane.bottomAnchor="86.39999999999998" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="72.60000000000002" AnchorPane.topAnchor="44.0" />
-      <JFXButton fx:id="volverBtn" layoutX="274.0" layoutY="335.0" stylesheets="@../com/example/login/Style.css" text="Volver" textFill="WHITE" />
+      <PieChart fx:id="grafico" layoutX="85.0" layoutY="63.0" prefHeight="275.0" prefWidth="484.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="63.0" />
+      <JFXButton fx:id="volverBtn" layoutX="327.0" layoutY="360.0" stylesheets="@../com/example/login/Style.css" text="Volver" textFill="WHITE" />
+      <LineChart fx:id="linechart" alternativeColumnFillVisible="true" focusTraversable="true" layoutX="53.0" layoutY="14.0" prefHeight="331.0" prefWidth="495.0" title="Evolucion del Saldo" visible="false" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="14.0">
+        <xAxis>
+          <NumberAxis minorTickCount="0" side="BOTTOM" tickLabelFill="WHITE" tickUnit="20.0" fx:id="xAxis" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAxis" side="LEFT" tickLabelFill="WHITE" />
+        </yAxis>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+         <effect>
+            <Blend />
+         </effect>
+      </LineChart>
+      <JFXButton fx:id="linealBtn" layoutX="210.0" layoutY="360.0" prefHeight="26.0" prefWidth="76.0" stylesheets="@../com/example/login/Style.css" text="Lineal" textFill="WHITE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="314.0" AnchorPane.topAnchor="360.0" />
     </children>
 
 </AnchorPane>

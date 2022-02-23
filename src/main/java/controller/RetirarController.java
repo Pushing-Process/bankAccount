@@ -20,16 +20,13 @@ import java.util.ResourceBundle;
 
 public class RetirarController implements Initializable {
 
+    static SceneController s = new SceneController();
     @FXML
     JFXButton submitBtn, cancelBtn;
-
     @FXML
     Label saldoTextField;
-
     @FXML
     TextField retirarTextArea;
-
-    static SceneController s = new SceneController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
