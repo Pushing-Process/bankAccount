@@ -6,26 +6,33 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EstadisticasController">
     <children>
-        <ImageView AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <image>
-                <Image url="@../img/back_menu.jpg" />
-            </image>
-        </ImageView>
-      <PieChart fx:id="grafico" layoutX="85.0" layoutY="63.0" prefHeight="275.0" prefWidth="484.0" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="63.0" />
+        <PieChart fx:id="grafico" layoutX="59.0" layoutY="63.0" prefHeight="275.0" prefWidth="484.0"
+                  stylesheets="@../com/example/login/Style.css" AnchorPane.bottomAnchor="62.0"
+                  AnchorPane.leftAnchor="59.0" AnchorPane.rightAnchor="57.0" AnchorPane.topAnchor="63.0"/>
       <JFXButton fx:id="volverBtn" layoutX="327.0" layoutY="360.0" stylesheets="@../com/example/login/Style.css" text="Volver" textFill="WHITE" />
-      <LineChart fx:id="linechart" alternativeColumnFillVisible="true" focusTraversable="true" layoutX="53.0" layoutY="14.0" prefHeight="331.0" prefWidth="495.0" title="Evolucion del Saldo" visible="false" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="14.0">
-        <xAxis>
-          <NumberAxis minorTickCount="0" side="BOTTOM" tickLabelFill="WHITE" tickUnit="20.0" fx:id="xAxis" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="yAxis" side="LEFT" tickLabelFill="WHITE" />
-        </yAxis>
+        <LineChart fx:id="linechart" alternativeColumnFillVisible="true" focusTraversable="true" layoutX="53.0"
+                   layoutY="14.0" prefHeight="331.0" prefWidth="495.0" stylesheets="@../com/example/login/Style.css"
+                   title="Evolucion del Saldo" visible="false" AnchorPane.bottomAnchor="55.0"
+                   AnchorPane.leftAnchor="53.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="14.0">
+            <xAxis>
+                <NumberAxis label="Movimientos" minorTickCount="0" side="BOTTOM" tickUnit="20.0" fx:id="xAxis">
+                    <tickLabelFont>
+                        <Font size="14.0"/>
+                    </tickLabelFont>
+                </NumberAxis>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Total" side="LEFT">
+                    <tickLabelFont>
+                        <Font size="14.0"/>
+                    </tickLabelFont>
+                </NumberAxis>
+            </yAxis>
          <cursor>
             <Cursor fx:constant="CROSSHAIR" />
          </cursor>

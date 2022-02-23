@@ -58,8 +58,10 @@ public class ServidorController implements Initializable {
                 }
             } else if (aux.getUsuario().equalsIgnoreCase(reciboDatos.getUsuario())) {
                 ArrayList<Extracto> extractos = reciboDatos.getExtractos();
-                Extracto extracto = extractos.get(extractos.size() - 1);
-                checkTipo(reciboDatos, extracto);
+                if (extractos.size() > 0) {
+                    Extracto extracto = extractos.get(extractos.size() - 1);
+                    checkTipo(reciboDatos, extracto);
+                }
             }
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
             datosTextArea.appendText(" - " + sdf.format(new Date()) + "\n");
