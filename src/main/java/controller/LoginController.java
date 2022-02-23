@@ -52,8 +52,7 @@ public class LoginController implements Initializable {
         }
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Dialog");
-        alert.setHeaderText("Look, an Error Dialog");
-        alert.setContentText("I have a great message for you!");
+        alert.setHeaderText("Usuario o contraseña incorrectos.");
         alert.showAndWait();
     }
 }

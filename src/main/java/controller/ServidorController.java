@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import model.Cuenta;
 import model.Extracto;
 
@@ -21,6 +22,11 @@ public class ServidorController implements Initializable {
     @FXML
     private TextArea datosTextArea;
 
+    @FXML
+    private TextField passwordTextField;
+
+    @FXML
+    private TextField userTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,6 +50,8 @@ public class ServidorController implements Initializable {
             reciboDatos = (Cuenta) reciboDatosPak.readObject();
             if (aux == null || !reciboDatos.getUsuario().equalsIgnoreCase(aux.getUsuario())) {
                 aux = (Cuenta) reciboDatos.clone();
+                userTextField.setText(aux.getUsuario());
+                passwordTextField.setText(aux.getEncriptado());
                 datosTextArea.appendText("\'" + aux.getUsuario() + "\' ha iniciado sesion con contraseña  \'" + aux.getEncriptado() + "\'");
                 for (Extracto extracto : aux.getExtractos()) {
                     checkTipo(reciboDatos, extracto);
