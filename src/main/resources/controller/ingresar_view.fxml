@@ -7,23 +7,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.effect.Light.Distant?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IngresarController">
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17"
+      fx:controller="controller.IngresarController">
 
     <children>
         <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../img/back_menu.jpg" />
+                <Image url="@../img/back_menu.jpg"/>
             </image>
         </ImageView>
         <VBox alignment="CENTER" layoutX="179.0" layoutY="124.0" prefHeight="153.0" prefWidth="243.0" spacing="20.0">
             <children>
-                <TextField fx:id="balanceT" editable="false" />
-                <TextField fx:id="text_ingreso" />
+                <TextField fx:id="balanceT" editable="false"/>
+                <TextField fx:id="text_ingreso"/>
                 <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                     <children>
-                  <JFXButton fx:id="volverBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css" text="Volver" textFill="WHITE" />
-                  <JFXButton fx:id="ingresarBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css" text="Ingresar" textFill="WHITE" />
+                        <JFXButton fx:id="volverBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css"
+                                   text="Volver" textFill="WHITE"/>
+                        <JFXButton fx:id="ingresarBtn" prefWidth="70.0" stylesheets="@../com/example/login/Style.css"
+                                   text="Ingresar" textFill="WHITE"/>
                     </children>
                 </HBox>
             </children>

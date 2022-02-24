@@ -48,55 +48,61 @@ public class TransferirController implements Initializable {
             }
         });
         submitBtn.setOnMouseClicked(mouseEvent -> {
-
             String nameTxt = personNameTxt.getText().trim();
-
             try {
                 double moneyToPass = Double.parseDouble(moneyCountTxt.getText());
+                if (moneyToPass < 0) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No puedes usar numeros negativos.");
+                    alert.showAndWait();
+                    return;
+                }
                 if (!names.contains(nameTxt) || nameTxt.equalsIgnoreCase(cuenta.getUsuario())) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error Dialog");
                     alert.setHeaderText(null);
                     alert.setContentText("Nombre de persona es invalido");
                     alert.showAndWait();
-                } else {
-
-                    Cuenta cuentaToPass = Main.cuentas.stream()
-                            .filter(cuentaFilter -> nameTxt.equalsIgnoreCase(cuentaFilter.getUsuario()))
-                            .findAny()
-                            .orElse(null);
-
-                    if (saldoActual < moneyToPass) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error Dialog");
-                        alert.setHeaderText(null);
-                        alert.setContentText("No tienes suficiente saldo.");
-                        alert.showAndWait();
-                    } else {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Success");
-                        alert.setHeaderText(null);
-                        alert.setContentText("Has transferido: " + moneyToPass + "€");
-                        cuenta.setBalance(cuenta.getBalance() - moneyToPass);
-                        cuenta.getExtractos().add(new Extracto(cuenta.getBalance(), -moneyToPass,
-                                Extracto.Tipo.TRANSFERENCIA, cuentaToPass));
-
-                        cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
-                        cuentaToPass.getExtractos().add(new Extracto(cuentaToPass.getBalance(), moneyToPass,
-                                Extracto.Tipo.TRANSFERENCIA, cuenta));
-                        new EnvioController(cuenta);
-
-                        System.out.println(Main.cuentas.toString());
-
-                        System.out.println(cuenta.getExtractos());
-                        alert.showAndWait();
-                        try {
-                            s.switchSceneMenu(mouseEvent);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                    return;
                 }
+
+                Cuenta cuentaToPass =
+                        Main.cuentas.stream().filter(cuentaFilter -> nameTxt.equalsIgnoreCase(cuentaFilter.getUsuario())).findAny().orElse(null);
+
+                if (saldoActual < moneyToPass) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No tienes suficiente saldo.");
+                    alert.showAndWait();
+                    return;
+                }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Has transferido: " + moneyToPass + "€");
+                cuenta.setBalance(cuenta.getBalance() - moneyToPass);
+                cuenta.getExtractos().add(new Extracto(cuenta.getBalance(), -moneyToPass,
+                        Extracto.Tipo.TRANSFERENCIA, cuentaToPass));
+
+                cuentaToPass.setBalance(cuentaToPass.getBalance() + moneyToPass);
+                cuentaToPass.getExtractos().add(new Extracto(cuentaToPass.getBalance(), moneyToPass,
+                        Extracto.Tipo.TRANSFERENCIA, cuenta));
+                new EnvioController(cuenta);
+
+                System.out.println(Main.cuentas.toString());
+
+                System.out.println(cuenta.getExtractos());
+                alert.showAndWait();
+                try {
+                    s.switchSceneMenu(mouseEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
             } catch (NumberFormatException nfe) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");

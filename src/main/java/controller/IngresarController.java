@@ -20,6 +20,7 @@ import java.util.ResourceBundle;
 public class IngresarController implements Initializable {
     @FXML
     public TextField balanceT;
+    SceneController s = new SceneController();
     @FXML
     private Button ingresarBtn;
     @FXML
@@ -35,11 +36,31 @@ public class IngresarController implements Initializable {
         ingresarBtn.setOnMouseClicked(mouseEvent -> {
             try {
                 double ingreso = Double.parseDouble(text_ingreso.getText());
+                if (ingreso < 0) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error Dialog");
+                    alert.setHeaderText(null);
+                    alert.setContentText("No puedes usar numeros negativos.");
+                    alert.showAndWait();
+                    return;
+                }
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Has ingresado: " + ingreso + "€");
                 cuenta.setBalance(cuenta.getBalance() + ingreso);
                 balanceT.setText(cuenta.getBalance().toString());
                 Extracto extracto = new Extracto(cuenta.getBalance(), ingreso, Extracto.Tipo.INGRESO);
                 LoginController.cuentaUser.getExtractos().add(extracto);
                 new EnvioController(cuenta);
+                alert.showAndWait();
+                try {
+                    s.switchSceneMenu(mouseEvent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
             } catch (NumberFormatException nfe) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");

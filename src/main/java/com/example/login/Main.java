@@ -23,6 +23,10 @@ public class Main extends Application {
         cuentas.add(new Cuenta("oleh", 111, (double) 120, new ArrayList<>()));
     }
 
+    public static void main(String[] args) {
+        launch();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/com/example/login/login_view.fxml"));
@@ -40,9 +44,5 @@ public class Main extends Application {
                 e.printStackTrace();
             }
         });
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }
